@@ -7,61 +7,65 @@ public class SchoolManagementSystem {
 
     // Constructor
     public SchoolManagementSystem(String departmentName) {
-        // Implementation for constructor
+        // Calling a method without implementation
     }
 
     // Methods (without implementation)
     public Department findDepartment(String departmentId) {
-        // Method declaration without implementation
+        // Calling a method without implementation
 
+        return null;
     }
 
     public void printTeachers() {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
     public void modifyCourseTeacher(String courseId, String teacherId) {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
     public void addDepartment(String departmentName) {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
     public void printStudents() {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
     public Student findStudent(String studentId) {
-        // Method declaration without implementation
+        // Calling a method without implementation
+        return null;
     }
 
     public void addCourse(String courseId, double credit, String departmentId) {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
     public void registerCourse(String studentId, String courseId) {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
     public void addTeacher(String teacherId, String firstName, String lastName) {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
-    public Course findCourse(String courseId) {
-        // Method declaration without implementation
+    public <Course> Course findCourse(String courseId) {
+        // Calling a method without implementation
+        return null;
     }
 
     public void printDepartments() {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
     public void addStudent(String studentId, String firstName, String lastName) {
-        // Method declaration without implementation
+        // Calling a method without implementation
     }
 
     public Teacher findTeacher(String teacherId) {
-        // Method declaration without implementation
+        // Calling a method without implementation
+        return null;
     }
 }
 
