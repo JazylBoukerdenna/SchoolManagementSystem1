@@ -1,3 +1,3 @@
 # SchoolManagementSystem1
 
-put some description of the project here...
+You are right to use it
