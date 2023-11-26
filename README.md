@@ -1,0 +1,3 @@
+# SchoolManagementSystem1
+
+put some description of the project here...
