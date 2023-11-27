@@ -3,14 +3,14 @@ package org.example.dto;
 import java.util.Arrays;
 
     public class Student {
-        private String id; // Unique identifier for the student
-        private String firstName; // First name of the student
-        private String lastName; // Last name of the student
-        private String name; // Full name of the student
-        private Department department; // Department to which the student belongs
-        private int courseNum; // Number of courses the student has registered
-        private course.Course[] courses; // Array to store the registered courses
-        private static int nextId = 1; // Static variable to generate unique IDs for students
+        private String id; 
+        private String firstName;  
+        private String lastName;  
+        private String name;  
+        private Department department; 
+        private int courseNum;
+        private course.Course[] courses;  
+        private static int nextId = 1;  
 
         /**
          * Constructor for creating a new Student object.
@@ -29,8 +29,7 @@ import java.util.Arrays;
             this.courses = new course.Course[5];
         }
 
-        // Getters and Setters for all fields, including name
-
+ 
         @Override
         public String toString() {
             return "Student{" +
@@ -44,7 +43,6 @@ import java.util.Arrays;
                     '}';
         }
 
-        // Other methods as per requirements
     }
 
 
