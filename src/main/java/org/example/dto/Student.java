@@ -18,8 +18,9 @@ import java.util.Arrays;
          * @param lastName The last name of the student.
          * @param department The department to which the student belongs.
          */
+        
         public Student(String firstName, String lastName, Department department) {
-            this.id = "S" + String.format("%03d", nextId); // Generate a unique ID for the student
+            this.id = "S" + String.format("%03d", nextId);  
             nextId++;
             this.firstName = firstName;
             this.lastName = lastName;
