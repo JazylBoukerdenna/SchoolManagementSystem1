@@ -32,15 +32,14 @@ import java.util.Arrays;
  
         @Override
         public String toString() {
-            return "Student{" +
-                    "id='" + id + '\'' +
-                    ", firstName='" + firstName + '\'' +
-                    ", lastName='" + lastName + '\'' +
-                    ", name='" + name + '\'' +
-                    ", department=" + department +
-                    ", courseNum=" + courseNum +
-                    ", courses=" + Arrays.toString(courses) +
-                    '}';
+            return "Student details: " +
+                    "ID: " + id +
+                    ", First Name: " + firstName +
+                    ", Last Name: " + lastName +
+                    ", Full Name: " + name +
+                    ", Department: " + department +
+                    ", Course Number: " + courseNum +
+                    ", Courses: " + Arrays.toString(courses);
         }
 
     }
