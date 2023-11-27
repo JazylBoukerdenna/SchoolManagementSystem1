@@ -16,8 +16,7 @@ package org.example.dto;
 
         }
 
-        // Getters and Setters for all fields
-
+ 
         @Override
         public String toString() {
             return "Teacher with ID: " + id +
@@ -25,7 +24,6 @@ package org.example.dto;
                     ", Department: " + department;
         }
 
-        // Other methods as per requirements
-    }
+     }
 
 
