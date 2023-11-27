@@ -22,7 +22,6 @@ public class course {
             this.studentNum = 0;
         }
 
-        // Getters and Setters for all fields, including studentNum
 
         public int getStudentNum() {
             return studentNum;
@@ -32,7 +31,6 @@ public class course {
             this.studentNum = studentNum;
         }
 
-        // Other properties as per requirements
 
         public String getId() {
             return id;
@@ -68,18 +66,14 @@ public class course {
 
         @Override
         public String toString() {
-            return "Course{" +
-                    "id='" + id + '\'' +
-                    ", courseName='" + courseName + '\'' +
-                    ", credit=" + credit +
-                    ", teacher=" + teacher +
-                    ", department='" + department + '\'' +
-                    ", students=" + Arrays.toString(students) +
-                    ", studentNum=" + studentNum +
-                    '}';
+            return "Course ID: " + id +
+                    ", Name: " + courseName +
+                    ", Credit: " + credit +
+                    ", Teacher: " + teacher +
+                    ", Department: " + department +
+                    ", Students: " + Arrays.toString(students) +
+                    ", Student Count: " + studentNum;
         }
-
-        // Other methods as per requirements
-    }
+     }
 
 }
