@@ -16,19 +16,16 @@ package org.example.dto;
 
         }
 
-        // Getters and Setters for all fields
 
         @Override
         public String toString() {
-            return "Teacher{" +
-                    "id='" + id + '\'' +
-                    ", firstName='" + firstName + '\'' +
-                    ", lastName='" + lastName + '\'' +
-                    ", department=" + department +
-                    '}';
+            return "Teacher with ID: " + id +
+                    ", Name: " + firstName + " " + lastName +
+                    ", Department: " + department;
         }
 
-        // Other methods as per requirements
     }
+
+
 
 

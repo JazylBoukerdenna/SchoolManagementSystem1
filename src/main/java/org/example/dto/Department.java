@@ -12,17 +12,14 @@ public class Department {
             this.departmentName = departmentName;
         }
 
-        // Getters and Setters for all fields, including nextId
 
         @Override
         public String toString() {
-            return "Department{" +
-                    "id='" + id + '\'' +
-                    ", departmentName='" + departmentName + '\'' +
-                    '}';
+            return "Department ID: " + id + ", Name: " + departmentName;
         }
 
-        // Other methods as per requirements
-    }
+}
+
+
 
 
