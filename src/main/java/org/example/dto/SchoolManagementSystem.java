@@ -71,7 +71,7 @@ public class SchoolManagementSystem {
             teacherCount++;
             System.out.println(teacher + " added successfully.");
         } else {
-            System.out.println("Max teacher reached, add a new teacher failed.");
+            System.out.println("The max teacher was reached, can't add a new tracher.");
         }
     }
 
