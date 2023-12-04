@@ -55,7 +55,7 @@ public class SchoolManagementSystem {
         }
     }
 
-    // Display all students
+    // Display all the students
     public void displayStudents() {
         System.out.println("Displaying all students:");
         for (int i = 0; i < studentCount; i++) {
@@ -75,7 +75,7 @@ public class SchoolManagementSystem {
         }
     }
 
-    // Display all teachers
+    // Display all the teachers
     public void displayTeachers() {
         System.out.println("Displaying all teachers:");
         for (int i = 0; i < teacherCount; i++) {
@@ -179,11 +179,4 @@ public class SchoolManagementSystem {
             System.out.println("Teacher " + teacherId + " assigned successfully to course " + courseId);
         }
     }
-
-    // Main method
-    public static void main(String[] args) {
-        SchoolManagementSystem system = new SchoolManagementSystem();
-        // Perform operations on the system
-    }
 }
-

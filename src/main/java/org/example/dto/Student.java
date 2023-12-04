@@ -101,10 +101,7 @@ public class Student {
         }
     }
 
-    /**
-     * Prints the details of the student.
-     */
-    public void printDetails() {
+    public void printDetails() {   //prints the details of the student
         System.out.println("Student details:");
         System.out.println("ID: " + id);
         System.out.println("First Name: " + firstName);
