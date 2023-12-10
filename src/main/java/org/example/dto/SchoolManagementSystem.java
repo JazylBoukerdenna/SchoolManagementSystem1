@@ -26,20 +26,12 @@ public class SchoolManagementSystem {
     // Add a new department
     public void addDepartment(String departmentName) {
         if (departmentCount < 5) {
-            Department department = new Department(departmentName);
+            Department department = new Department(departmentName, "Computer Science");
             departments[departmentCount] = department;
             departmentCount++;
             System.out.println("Department " + department.getId() + " added successfully.");
         } else {
             System.out.println("Max department reached, add a new department failed.");
-        }
-    }
-
-    // Display all departments
-    public void displayDepartments() {
-        System.out.println("Displaying all departments:");
-        for (int i = 0; i < departmentCount; i++) {
-            System.out.println(departments[i]);
         }
     }
 
@@ -150,7 +142,7 @@ public class SchoolManagementSystem {
             System.out.println("Student " + studentId + " has already registered Course " + courseId + ", register course " + courseId + " for student " + studentId + " failed.");
         } else {
             student.registerCourse(course);
-            course.registerStudent(student);
+            course.getStudents();
             System.out.println("Course " + courseId + " registered successfully for student " + studentId);
         }
     }
@@ -171,12 +163,47 @@ public class SchoolManagementSystem {
         Course course = searchCourse(courseId);
 
         if (teacher == null) {
-            System.out.println("Cannot find any teacher match with teacherId " + teacherId + ", assign teacher for course " + courseId + " failed.");
+            System.out.println("Cannot find any teacher match with teacherId " + teacherId + ", assign teacher for course " + courseId + "it has failed.");
         } else if (course == null) {
-            System.out.println("Cannot find any course match with courseId " + courseId + ", assign teacher for course " + courseId + " failed.");
+            System.out.println("Cannot find any course match with courseId " + courseId + ", assign teacher for course " + courseId + " it has failed.");
         } else {
             course.setTeacher(teacher);
             System.out.println("Teacher " + teacherId + " assigned successfully to course " + courseId);
         }
     }
+
+    // Modify the teacher of a course
+    public void modifyTeacherOfCourse(String teacherId, String courseId) {
+        Teacher teacher = searchTeacher(teacherId);
+        Course course = searchCourse(courseId);
+
+        if (teacher == null) {
+            System.out.println("Cannot find any teacher match with teacherId " + teacherId + ", modify teacher for course " + courseId + " failed.");
+        } else if (course == null) {
+            System.out.println("Cannot find any course match with courseId " + courseId + ", modify teacher for course " + courseId + " failed.");
+        } else {
+            course.setTeacher(teacher);
+            System.out.println("Teacher " + teacherId + " assigned successfully to course " + courseId);
+        }
+    }
+
+    // Modify the student of a course
+    public void modifyStudentOfCourse(String studentId, String courseId) {
+        Student student = searchStudent(studentId);
+        Course course = searchCourse(courseId);
+
+        if (student == null) {
+            System.out.println("Cannot find any student match with studentId " + studentId + ", modify student for course " + courseId + " failed.");
+        } else if (course == null) {
+            System.out.println("Cannot find any course match with courseId " + courseId + ", modify student for course " + courseId + " failed.");
+        } else {
+            course.registerStudent(student);
+            System.out.println("Student " + studentId + " registered successfully to course " + courseId);
+        }
+
+    }
+
 }
+
+
+

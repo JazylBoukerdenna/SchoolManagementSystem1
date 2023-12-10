@@ -23,9 +23,6 @@ public class Course {
 
     // Getters and Setters for all fields
 
-    public String getId() {
-        return id;
-    }
 
     public String getCourseName() {
         return courseName;
@@ -74,7 +71,13 @@ public class Course {
                 ", Student Count: " + studentNum;
     }
 
+
     public void registerStudent(Student student) {
+    }
+
+
+    public Object getId() {
+        return null;
     }
 }
 

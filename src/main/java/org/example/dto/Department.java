@@ -5,7 +5,7 @@ public class Department {
     private String departmentName;
     private static int nextId = 1;
 
-    public Department(String departmentName) {
+    public Department(String departmentName, String computer_science) {
         this.id = "D" + String.format("%03d", nextId);
         nextId++;
         this.departmentName = departmentName;
@@ -32,6 +32,21 @@ public class Department {
     @Override
     public String toString() {
         return "Department ID: " + id + ", Name: " + departmentName;
+    }
+
+    // Add a new department
+    public void addDepartment(String departmentName) {
+
+    }
+
+    // Display all departments
+    public void displayDepartments() {
+        // Implementation to display all departments
+    }
+
+    // Search a department by departmentId
+    public Department searchDepartment(String departmentId) {
+        return null; // Placeholder, replace with actual implementation
     }
 }
 
