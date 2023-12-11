@@ -34,30 +34,7 @@ public class Student {
         this.courses = new Course[MAX_COURSES];
     }
 
-    /**
-     * Registers a course for the student.
-     * @param course The course to be registered.
-     */
-    public void addCourse (Course course) {
-        if (courseNum < MAX_COURSES) {
-            courses[courseNum] = course;
-            courseNum++;
-        } else {
-            System.out.println("This student reached the maximum amount of courses " + id);
-         }
-    }
 
-
-    @Override
-    public String toString() {
-        return "Student details: " +
-                "ID: " + id +
-                ", First Name: " + firstName +
-                ", Last Name: " + lastName +
-                ", Department: " + department +
-                ", Course Number: " + courseNum +
-                ", Courses: " + Arrays.toString(courses);
-    }
 }
 
 

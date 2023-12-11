@@ -38,16 +38,6 @@ public class Course {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Course ID: " + id +
-                ", Name: " + courseName +
-                ", Credit: " + credit +
-                ", Teacher: " + teacher +
-                ", Department: " + department +
-                ", Students: " + Arrays.toString(students) +
-                ", Student Count: " + studentNum;
-    }
 }
 
 
