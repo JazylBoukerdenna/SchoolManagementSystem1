@@ -54,6 +54,7 @@ public class Main {
             System.out.println("Teacher not found.");
         }
 
+
         sM1.addCourse("Introduction to programming", 3.0, "C001");
         System.out.println("j. Add a new course successfully:");
         System.out.println("Course{id = 'C001', courseName = Intro to programming, credits = 3.0, department = Department(id = D001, departmentName = Computer Science");
