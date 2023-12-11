@@ -2,7 +2,7 @@
 # SchoolManagementSystem1
 
 
-## Project Overview
+# Project Overview
 
 The project includes the following classes:
 - **SchoolManagementSystem**: Represents a school.
@@ -11,10 +11,9 @@ The project includes the following classes:
 - **Teacher**: Represents teacher information.
 - **Course**: Represents courses available in the school.
 
-Each class includes initial documentation with methods outlined as per the project's requirements. Currently, the methods are empty and will be implemented in subsequent iterations.
 
 
-## Functionality
+# Functionality of the project
 
 The system supports functionalities such as:
 - Adding new departments, students, teachers, and courses.

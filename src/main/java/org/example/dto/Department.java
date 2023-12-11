@@ -5,7 +5,7 @@ public class Department {
     private String departmentName;
     private static int nextId = 1;
 
-    public Department(String departmentName, String computer_science) {
+    public Department(String departmentName) {
         this.id = "D" + String.format("%03d", nextId);
         nextId++;
         this.departmentName = departmentName;
@@ -17,9 +17,6 @@ public class Department {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getDepartmentName() {
         return departmentName;

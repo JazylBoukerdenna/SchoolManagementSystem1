@@ -5,14 +5,14 @@ public class Teacher {
     private String firstName;
     private String lastName;
     private Department department;
-    private String name;
 
-    public Teacher(String id, String firstName, Department department) {
-        this.id = id;
+    private static int nextId = 1;
+
+    public Teacher(String firstName, String lastName, Department department) {
+        this.id = "T" + String.format("%03d", nextId++);
         this.firstName = firstName;
         this.lastName = lastName;
         this.department = department;
-        this.name = firstName + " " + lastName;
     }
 
     // Getters and Setters for all fields
@@ -21,49 +21,32 @@ public class Teacher {
         return id;
     }
 
+
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public Department getDepartment() {
-        return department;
-    }
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public String toString() {
-        return "Teacher with ID: " + id +
-                ", Name: " + firstName + " " + lastName +
-                ", Department: " + department;
+        return "Teacher{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", department=" + department +
+                '}';
     }
 }
+
 
 
 

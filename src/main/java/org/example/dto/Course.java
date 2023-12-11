@@ -1,8 +1,19 @@
 package org.example.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.Arrays;
 
+@Getter
+@Setter
+@ToString
+
+
 public class Course {
+    public static int MAX_STUDENTS = 30;
+    private static int nextId = 1;
     private String id;
     private String courseName;
     private double credit;
@@ -11,54 +22,24 @@ public class Course {
     private Student[] students;
     private int studentNum;
 
-    public Course(String id, String courseName, double credit, Department department) {
-        this.id = id;
+    public Course(String courseName, double credit, Department department) {
+        this.id = "C" + String.format("%03d", nextId++);
         this.courseName = courseName;
         this.credit = credit;
         this.department = department;
-        this.teacher = null;
-        this.students = new Student[5];
+        this.students = new Student[MAX_STUDENTS];
         this.studentNum = 0;
     }
 
-    // Getters and Setters for all fields
-
-
-    public String getCourseName() {
-        return courseName;
+    public void addStudent(Student student) {
+        if ( studentNum < MAX_STUDENTS) {
+            students[studentNum] = student;
+            studentNum++;
+        }else{
+            System.out.println("The Maximum number of students reached the course" + id);
+        }
     }
 
-    public double getCredit() {
-        return credit;
-    }
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public Student[] getStudents() {
-        return students;
-    }
-
-    public void setStudents(Student[] students) {
-        this.students = students;
-    }
-
-    public int getStudentNum() {
-        return studentNum;
-    }
-
-    public void setStudentNum(int studentNum) {
-        this.studentNum = studentNum;
-    }
 
     @Override
     public String toString() {
@@ -71,14 +52,6 @@ public class Course {
                 ", Student Count: " + studentNum;
     }
 
-
-    public void registerStudent(Student student) {
-    }
-
-
-    public Object getId() {
-        return null;
-    }
 }
 
 

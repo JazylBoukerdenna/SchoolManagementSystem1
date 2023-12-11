@@ -1,15 +1,23 @@
 package org.example.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.Arrays;
+@Getter
+@Setter
+@ToString
 
 public class Student {
     private String id;
     private String firstName;
     private String lastName;
-    private String name;
     private Department department;
     private int courseNum;
     private Course[] courses;
+
+    public static int MAX_COURSES = 5;
     private static int nextId = 1;
 
     /**
@@ -19,98 +27,28 @@ public class Student {
      * @param department The department where the student belongs.
      */
     public Student(String firstName, String lastName, Department department) {
-        this.id = "S" + String.format("%03d", nextId); // Generate a unique ID for the student
+        this.id = "S" + String.format("%03d", nextId++);
         nextId++;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.name = firstName + " " + lastName;
         this.department = department;
         this.courseNum = 0;
-        this.courses = new Course[5];
-    }
-
-    // Getters and Setters for all fields
-
-    public String getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public int getCourseNum() {
-        return courseNum;
-    }
-
-    public Course[] getCourses() {
-        return courses;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    public void setCourseNum(int courseNum) {
-        this.courseNum = courseNum;
-    }
-
-    public void setCourses(Course[] courses) {
-        this.courses = courses;
+        this.courses = new Course[MAX_COURSES];
     }
 
     /**
      * Registers a course for the student.
      * @param course The course to be registered.
      */
-    public void registerCourse(Course course) {
-        if (courseNum < 5) {
+    public void addCourse (Course course) {
+        if (courseNum < MAX_COURSES) {
             courses[courseNum] = course;
             courseNum++;
-            System.out.println("Course " + course.getId() + " registered successfully for student " + id);
         } else {
-            System.out.println("Student " + id + " has already registered the maximum number of courses.");
-        }
+            System.out.println("This student reached the maximum amount of courses " + id);
+         }
     }
 
-    public void printDetails() {   //prints the details of the student
-        System.out.println("Student details:");
-        System.out.println("ID: " + id);
-        System.out.println("First Name: " + firstName);
-        System.out.println("Last Name: " + lastName);
-        System.out.println("Full Name: " + name);
-        System.out.println("Department: " + department);
-        System.out.println("Course Number: " + courseNum);
-        System.out.println("Courses: " + Arrays.toString(courses));
-    }
 
     @Override
     public String toString() {
@@ -118,7 +56,6 @@ public class Student {
                 "ID: " + id +
                 ", First Name: " + firstName +
                 ", Last Name: " + lastName +
-                ", Full Name: " + name +
                 ", Department: " + department +
                 ", Course Number: " + courseNum +
                 ", Courses: " + Arrays.toString(courses);

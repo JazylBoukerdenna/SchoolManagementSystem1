@@ -1,209 +1,173 @@
 package org.example.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.Arrays;
 
+@Getter
+@ToString
+@Setter
+
 public class SchoolManagementSystem {
-    private Department[] departments;
-    private Student[] students;
-    private Teacher[] teachers;
-    private Course[] courses;
-    private int departmentCount;
-    private int studentCount;
-    private int teacherCount;
-    private int courseCount;
+    private Department[] departments = new Department[5];
+    private Student[] students = new Student[200];
+    private Teacher[] teachers = new Teacher[20];
+    private Course[] courses = new Course[30];
+    private int departmentCount = 0;
+    private int studentCount = 0;
+    private int teacherCount = 0;
+    private int courseCount = 0;
+
 
     public SchoolManagementSystem() {
-        this.departments = new Department[5];
-        this.students = new Student[200];
-        this.teachers = new Teacher[20];
-        this.courses = new Course[30];
-        this.departmentCount = 0;
-        this.studentCount = 0;
-        this.teacherCount = 0;
-        this.courseCount = 0;
     }
 
-    // Add a new department
     public void addDepartment(String departmentName) {
-        if (departmentCount < 5) {
-            Department department = new Department(departmentName, "Computer Science");
-            departments[departmentCount] = department;
-            departmentCount++;
-            System.out.println("Department " + department.getId() + " added successfully.");
+        if (departmentCount < departments.length) {
+            departments[departmentCount++] = new Department(departmentName);
         } else {
-            System.out.println("Max department reached, add a new department failed.");
+            System.out.println("Max department reached");
         }
     }
 
-    // Add a new student
-    public void addStudent(String firstName, String lastName, Department department) {
-        if (studentCount < 200) {
-            Student student = new Student(firstName, lastName, department);
-            students[studentCount] = student;
-            studentCount++;
-            System.out.println(student + " added successfully.");
+
+    public void addStudent(String firstName, String lastName, String departmentId) {
+        Department department =  findDepartment(departmentId);
+        if (department != null && studentCount < students.length) {
+            students[studentCount++] = new Student(firstName, lastName, department);
         } else {
-            System.out.println("Max student reached, add a new student failed.");
+            if (department == null) {
+                System.out.println("Department cannot be found");
+            } else {
+                System.out.println("The maximum amount of students has been reached");
+            }
         }
     }
 
-    // Display all the students
-    public void displayStudents() {
-        System.out.println("Displaying all students:");
-        for (int i = 0; i < studentCount; i++) {
-            System.out.println(students[i]);
+    public void addTeacher(String firstName , String lastName , String departmentId){
+        Department department = findDepartment(departmentId);
+        if(department != null && teacherCount < teachers.length){
+            teachers [teacherCount++] = new Teacher(firstName , lastName , department);
+        }else if (department == null){
+            System.out.println("Cannot find the department");
+        }else{
+            System.out.println("The maximum number of teacher has been reached");
         }
     }
 
-    // Add a new teacher
-    public void addTeacher(String firstName, String lastName, Department department) {
-        if (teacherCount < 20) {
-            Teacher teacher = new Teacher(firstName, lastName, department);
-            teachers[teacherCount] = teacher;
-            teacherCount++;
-            System.out.println(teacher + " added successfully.");
-        } else {
-            System.out.println("The max teacher was reached, can't add a new tracher.");
-        }
-    }
-
-    // Display all the teachers
-    public void displayTeachers() {
-        System.out.println("Displaying all teachers:");
-        for (int i = 0; i < teacherCount; i++) {
-            System.out.println(teachers[i]);
-        }
-    }
 
     // Add a new course
-    public void addCourse(String courseName, double credit, Department department) {
-        if (courseCount < 30) {
-            Course course = new Course("C" + String.format("%03d", courseCount + 1), courseName, credit, department);
-            courses[courseCount] = course;
-            courseCount++;
-            System.out.println(course + " added successfully.");
+    public void addCourse(String courseName, double credits, String departmentId) {
+        Department department = findDepartment(departmentId);
+        if (department != null && courseCount < courses.length) {
+            courses[courseCount++] = new Course(courseName, credits, department);
+        } else if (department == null) {
+            System.out.println("Cannot find the department");
         } else {
-            System.out.println("Max course reached, add a new course failed.");
+            System.out.println("The maximum of courses has been reached");
+
         }
     }
 
-    // Display all courses
-    public void displayCourses() {
-        System.out.println("Displaying all courses:");
-        for (int i = 0; i < courseCount; i++) {
-            System.out.println(courses[i]);
-        }
-    }
-
-    // Search a department by departmentId
-    public Department searchDepartment(String departmentId) {
-        for (int i = 0; i < departmentCount; i++) {
-            if (departments[i].getId().equals(departmentId)) {
-                return departments[i];
+    public Department findDepartment(String departmentId){
+        for (Department department : departments){
+            if  ( department != null && department.getId().equals(departmentId)){
+                return department;
             }
         }
         return null;
     }
 
-    // Search the teacher by the teacherId
-    public Teacher searchTeacher(String teacherId) {
-        for (int i = 0; i < teacherCount; i++) {
-            if (teachers[i].getId().equals(teacherId)) {
-                return teachers[i];
+    public Student findStudent(String studentId){
+        for (Student student : students){
+            if  ( student != null && student.getId().equals(studentId)){
+                return student;
             }
         }
         return null;
     }
 
-    // Search a course by courseId
-    public Course searchCourse(String courseId) {
-        for (int i = 0; i < courseCount; i++) {
-            if (courses[i].getId().equals(courseId)) {
-                return courses[i];
+    public Teacher findTeacher(String teacherId){
+        for (Teacher teacher : teachers){
+            if  ( teacher != null && teacher.getId().equals(teacherId)){
+                return teacher;
             }
         }
         return null;
     }
 
-    // Register a course for a student
-    public void registerCourse(String studentId, String courseId) {
-        Student student = searchStudent(studentId);
-        Course course = searchCourse(courseId);
-
-        if (student == null) {
-            System.out.println("Cannot find any student match with studentId " + studentId + ", register course for student " + studentId + " failed.");
-        } else if (course == null) {
-            System.out.println("Cannot find any course match with courseId " + courseId + ", register course " + courseId + " for student " + studentId + " failed.");
-        } else if (student.getCourseNum() >= 5) {
-            System.out.println("Student " + studentId + " has already registered the maximum number of courses, register course " + courseId + " failed.");
-        } else if (course.getStudentNum() >= 5) {
-            System.out.println("Course " + courseId + " has been fully registered, register course " + courseId + " for student " + studentId + " failed.");
-        } else if (Arrays.asList(course.getStudents()).contains(student)) {
-            System.out.println("Student " + studentId + " has already registered Course " + courseId + ", register course " + courseId + " for student " + studentId + " failed.");
-        } else {
-            student.registerCourse(course);
-            course.getStudents();
-            System.out.println("Course " + courseId + " registered successfully for student " + studentId);
-        }
-    }
-
-    // Search a student by studentId
-    public Student searchStudent(String studentId) {
-        for (int i = 0; i < studentCount; i++) {
-            if (students[i].getId().equals(studentId)) {
-                return students[i];
+    public Course findCourse(String courseId){
+        for (Course course : courses){
+            if  ( course != null && course.getId().equals(courseId)){
+                return course;
             }
         }
         return null;
     }
 
-    // Assign a teacher to a specific course
-    public void assignTeacherToCourse(String teacherId, String courseId) {
-        Teacher teacher = searchTeacher(teacherId);
-        Course course = searchCourse(courseId);
-
-        if (teacher == null) {
-            System.out.println("Cannot find any teacher match with teacherId " + teacherId + ", assign teacher for course " + courseId + "it has failed.");
-        } else if (course == null) {
-            System.out.println("Cannot find any course match with courseId " + courseId + ", assign teacher for course " + courseId + " it has failed.");
-        } else {
-            course.setTeacher(teacher);
-            System.out.println("Teacher " + teacherId + " assigned successfully to course " + courseId);
+    public void displayDepartments(){
+        System.out.println("Displaying all the departments: ");
+        for(Department department : departments){
+            if (department != null){
+                System.out.println(department);
+            }
+        }
+    }
+    public void displayTeachers(){
+        System.out.println("Displaying all the teachers: ");
+        for(Teacher teacher : teachers){
+            if (teacher != null){
+                System.out.println(teacher);
+            }
         }
     }
 
-    // Modify the teacher of a course
-    public void modifyTeacherOfCourse(String teacherId, String courseId) {
-        Teacher teacher = searchTeacher(teacherId);
-        Course course = searchCourse(courseId);
-
-        if (teacher == null) {
-            System.out.println("Cannot find any teacher match with teacherId " + teacherId + ", modify teacher for course " + courseId + " failed.");
-        } else if (course == null) {
-            System.out.println("Cannot find any course match with courseId " + courseId + ", modify teacher for course " + courseId + " failed.");
-        } else {
-            course.setTeacher(teacher);
-            System.out.println("Teacher " + teacherId + " assigned successfully to course " + courseId);
+    public void displayStudents(){
+        System.out.println("Displaying all the students: ");
+        for(Student student : students){
+            if (student != null){
+                System.out.println(student);
+            }
         }
     }
 
-    // Modify the student of a course
-    public void modifyStudentOfCourse(String studentId, String courseId) {
-        Student student = searchStudent(studentId);
-        Course course = searchCourse(courseId);
+    public void displayCourses(){
+        System.out.println("Displaying all the courses: ");
+        for(Course course : courses){
+            if (course != null){
+                System.out.println(course);
+            }
+        }
+    }
 
-        if (student == null) {
-            System.out.println("Cannot find any student match with studentId " + studentId + ", modify student for course " + courseId + " failed.");
-        } else if (course == null) {
-            System.out.println("Cannot find any course match with courseId " + courseId + ", modify student for course " + courseId + " failed.");
-        } else {
-            course.registerStudent(student);
-            System.out.println("Student " + studentId + " registered successfully to course " + courseId);
+    public void registeredCourse (String studentId, String courseId){
+        Course course = findCourse(courseId);
+        Student student = findStudent(studentId);
+        if (student == null || course == null){
+            System.out.println("Student / course not found.");
+            return;
+        }
+        if (Arrays.asList(student.getCourses()).contains(course)){
+            System.out.println("The student is already registered in this course");
+            return;
+        }
+        if(student.getCourseNum() >= student.MAX_COURSES){
+            System.out.println("The Student cannot register because he has reached the limit ");
         }
 
+        if(student.getCourseNum() >= Course.MAX_STUDENTS){
+            System.out.println("The Course has reached the maximum of students");
+        }
     }
 
 }
+
+
+
+
+
 
 
 
