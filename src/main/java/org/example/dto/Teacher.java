@@ -1,5 +1,13 @@
 package org.example.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+
 public class Teacher {
     private String id;
     private String firstName;
@@ -15,24 +23,12 @@ public class Teacher {
         this.department = department;
     }
 
-    // Getters and Setters for all fields
+
 
     public String getId() {
         return id;
     }
 
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
 
 

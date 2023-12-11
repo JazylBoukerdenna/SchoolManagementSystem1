@@ -20,10 +20,6 @@ public class SchoolManagementSystem {
     private int teacherCount = 0;
     private int courseCount = 0;
 
-
-    public SchoolManagementSystem() {
-    }
-
     public void addDepartment(String departmentName) {
         if (departmentCount < departments.length) {
             departments[departmentCount++] = new Department(departmentName);
