@@ -7,7 +7,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-
 public class Teacher {
     private String id;
     private String firstName;
@@ -23,14 +22,9 @@ public class Teacher {
         this.department = department;
     }
 
-
-
     public String getId() {
         return id;
     }
-
-
-
 
     @Override
     public String toString() {
@@ -42,6 +36,7 @@ public class Teacher {
                 '}';
     }
 }
+
 
 
 

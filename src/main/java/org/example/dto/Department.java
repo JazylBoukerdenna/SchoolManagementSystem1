@@ -5,7 +5,6 @@ import lombok.ToString;
 
 @Setter
 @ToString
-
 public class Department {
     private String id;
     private String departmentName;
@@ -17,10 +16,7 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-
-
     public String getId() {
         return id;
     }
-
 }

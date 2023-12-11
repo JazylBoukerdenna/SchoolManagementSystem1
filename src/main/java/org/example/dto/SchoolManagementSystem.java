@@ -9,7 +9,6 @@ import java.util.Arrays;
 @Getter
 @ToString
 @Setter
-
 public class SchoolManagementSystem {
     private Department[] departments = new Department[5];
     private Student[] students = new Student[200];
@@ -28,9 +27,8 @@ public class SchoolManagementSystem {
         }
     }
 
-
     public void addStudent(String firstName, String lastName, String departmentId) {
-        Department department =  findDepartment(departmentId);
+        Department department = findDepartment(departmentId);
         if (department != null && studentCount < students.length) {
             students[studentCount++] = new Student(firstName, lastName, department);
         } else {
@@ -42,19 +40,17 @@ public class SchoolManagementSystem {
         }
     }
 
-    public void addTeacher(String firstName , String lastName , String departmentId){
+    public void addTeacher(String firstName, String lastName, String departmentId) {
         Department department = findDepartment(departmentId);
-        if(department != null && teacherCount < teachers.length){
-            teachers [teacherCount++] = new Teacher(firstName , lastName , department);
-        }else if (department == null){
+        if (department != null && teacherCount < teachers.length) {
+            teachers[teacherCount++] = new Teacher(firstName, lastName, department);
+        } else if (department == null) {
             System.out.println("Cannot find the department");
-        }else{
+        } else {
             System.out.println("The maximum number of teacher has been reached");
         }
     }
 
-
-    // Add a new course
     public void addCourse(String courseName, double credits, String departmentId) {
         Department department = findDepartment(departmentId);
         if (department != null && courseCount < courses.length) {
@@ -63,107 +59,98 @@ public class SchoolManagementSystem {
             System.out.println("Cannot find the department");
         } else {
             System.out.println("The maximum of courses has been reached");
-
         }
     }
 
-    public Department findDepartment(String departmentId){
-        for (Department department : departments){
-            if  ( department != null && department.getId().equals(departmentId)){
+    public Department findDepartment(String departmentId) {
+        for (Department department : departments) {
+            if (department != null && department.getId().equals(departmentId)) {
                 return department;
             }
         }
         return null;
     }
 
-    public Student findStudent(String studentId){
-        for (Student student : students){
-            if  ( student != null && student.getId().equals(studentId)){
+    public Student findStudent(String studentId) {
+        for (Student student : students) {
+            if (student != null && student.getId().equals(studentId)) {
                 return student;
             }
         }
         return null;
     }
 
-    public Teacher findTeacher(String teacherId){
-        for (Teacher teacher : teachers){
-            if  ( teacher != null && teacher.getId().equals(teacherId)){
+    public Teacher findTeacher(String teacherId) {
+        for (Teacher teacher : teachers) {
+            if (teacher != null && teacher.getId().equals(teacherId)) {
                 return teacher;
             }
         }
         return null;
     }
 
-    public Course findCourse(String courseId){
-        for (Course course : courses){
-            if  ( course != null && course.getId().equals(courseId)){
+    public Course findCourse(String courseId) {
+        for (Course course : courses) {
+            if (course != null && course.getId().equals(courseId)) {
                 return course;
             }
         }
         return null;
     }
 
-    public void displayDepartments(){
+    public void displayDepartments() {
         System.out.println("Displaying all the departments: ");
-        for(Department department : departments){
-            if (department != null){
+        for (Department department : departments) {
+            if (department != null) {
                 System.out.println(department);
             }
         }
     }
-    public void displayTeachers(){
+
+    public void displayTeachers() {
         System.out.println("Displaying all the teachers: ");
-        for(Teacher teacher : teachers){
-            if (teacher != null){
+        for (Teacher teacher : teachers) {
+            if (teacher != null) {
                 System.out.println(teacher);
             }
         }
     }
 
-    public void displayStudents(){
+    public void displayStudents() {
         System.out.println("Displaying all the students: ");
-        for(Student student : students){
-            if (student != null){
+        for (Student student : students) {
+            if (student != null) {
                 System.out.println(student);
             }
         }
     }
 
-    public void displayCourses(){
+    public void displayCourses() {
         System.out.println("Displaying all the courses: ");
-        for(Course course : courses){
-            if (course != null){
+        for (Course course : courses) {
+            if (course != null) {
                 System.out.println(course);
             }
         }
     }
 
-    public void registeredCourse (String studentId, String courseId){
+    public void registeredCourse(String studentId, String courseId) {
         Course course = findCourse(courseId);
         Student student = findStudent(studentId);
-        if (student == null || course == null){
+        if (student == null || course == null) {
             System.out.println("Student / course not found.");
             return;
         }
-        if (Arrays.asList(student.getCourses()).contains(course)){
+        if (Arrays.asList(student.getCourses()).contains(course)) {
             System.out.println("The student is already registered in this course");
             return;
         }
-        if(student.getCourseNum() >= student.MAX_COURSES){
+        if (student.getCourseNum() >= Student.MAX_COURSES) {
             System.out.println("The Student cannot register because he has reached the limit ");
         }
 
-        if(student.getCourseNum() >= Course.MAX_STUDENTS){
+        if (student.getCourseNum() >= Course.MAX_STUDENTS) {
             System.out.println("The Course has reached the maximum of students");
         }
     }
-
 }
-
-
-
-
-
-
-
-

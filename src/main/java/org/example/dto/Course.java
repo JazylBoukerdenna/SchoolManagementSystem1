@@ -9,8 +9,6 @@ import java.util.Arrays;
 @Getter
 @Setter
 @ToString
-
-
 public class Course {
     public static int MAX_STUDENTS = 30;
     private static int nextId = 1;
@@ -32,14 +30,13 @@ public class Course {
     }
 
     public void addStudent(Student student) {
-        if ( studentNum < MAX_STUDENTS) {
+        if (studentNum < MAX_STUDENTS) {
             students[studentNum] = student;
             studentNum++;
-        }else{
+        } else {
             System.out.println("The Maximum number of students reached the course" + id);
         }
     }
-
 
     @Override
     public String toString() {
@@ -51,8 +48,8 @@ public class Course {
                 ", Students: " + Arrays.toString(students) +
                 ", Student Count: " + studentNum;
     }
-
 }
+
 
 
 
