@@ -1,5 +1,4 @@
 package org.example.dto;
-
 import lombok.Setter;
 import lombok.ToString;
 
