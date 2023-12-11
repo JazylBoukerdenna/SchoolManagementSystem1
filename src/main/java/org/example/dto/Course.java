@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Arrays;
-
 @Getter
 @Setter
 @ToString
@@ -27,15 +25,6 @@ public class Course {
         this.department = department;
         this.students = new Student[MAX_STUDENTS];
         this.studentNum = 0;
-    }
-
-    public void addStudent(Student student) {
-        if (studentNum < MAX_STUDENTS) {
-            students[studentNum] = student;
-            studentNum++;
-        } else {
-            System.out.println("The Maximum number of students reached the course" + id);
-        }
     }
 
 }
