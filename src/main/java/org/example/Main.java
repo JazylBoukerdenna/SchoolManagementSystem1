@@ -31,7 +31,7 @@ public class Main {
 
         sM1.displayStudents();
 
-        System.out.println("f. Finding Student with id = S001:");
+        System.out.println(" Finding Student with id = S001:");
         student = sM1.findStudent("S001");
         if (student != null) {
             System.out.println(student);
@@ -40,13 +40,13 @@ public class Main {
         }
 
         sM1.addTeacher("Yi", "Wang", "D001");
-        System.out.println("g. Add a new teacher successfully:");
+        System.out.println(" Add a new teacher successfully:");
         System.out.println("Teacher{id = 'T001', fname = 'Yi', lname = 'Wang', department = Computer Science");
 
-        System.out.println("h. Displaying all the teachers:");
+        System.out.println("Displaying all the teachers:");
         sM1.displayTeachers();
 
-        System.out.println("i. Finding Teacher with id = T001:");
+        System.out.println("Finding Teacher with id = T001:");
         Teacher teacher = sM1.findTeacher("T001");
         if (teacher != null) {
             System.out.println(teacher);
@@ -54,9 +54,8 @@ public class Main {
             System.out.println("Teacher not found.");
         }
 
-
         sM1.addCourse("Introduction to programming", 3.0, "C001");
-        System.out.println("j. Add a new course successfully:");
+        System.out.println(" Add a new course successfully:");
         System.out.println("Course{id = 'C001', courseName = Intro to programming, credits = 3.0, department = Department(id = D001, departmentName = Computer Science");
 
         System.out.println(" Displaying all the courses:");
